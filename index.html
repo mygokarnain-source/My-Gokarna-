@@ -208,10 +208,10 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
     </a>
     <nav class="nav-links">
       <a href="#trip-plans">Trip Plans</a>
-      <a href="#bikes">Bikes</a>
-      <a href="#rooms">Rooms</a>
-      <a href="#boats">Boating</a>
-      <a href="#taxi">Taxis</a>
+      <a href="#services" data-tab-target="bikes">Bikes</a>
+      <a href="#services" data-tab-target="rooms">Rooms</a>
+      <a href="#services" data-tab-target="boats">Boating</a>
+      <a href="#services" data-tab-target="taxi">Taxis</a>
       <a href="#hidden-gems">Hidden Gems</a>
       <a href="#location-map">Location</a>
     </nav>
@@ -225,10 +225,10 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
   <!-- FIXED TOP OVERLAY MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#trip-plans">🗓️ Trip Plans</a>
-    <a href="#bikes">🏍️ Bike & Scooter Rental</a>
-    <a href="#rooms">🏖️ Beach Rooms & Stays</a>
-    <a href="#boats">🚤 Boating Experiences</a>
-    <a href="#taxi">🚕 Taxi & Cab Booking</a>
+    <a href="#services" data-tab-target="bikes">🏍️ Bike & Scooter Rental</a>
+    <a href="#services" data-tab-target="rooms">🏖️ Beach Rooms & Stays</a>
+    <a href="#services" data-tab-target="boats">🚤 Boating Experiences</a>
+    <a href="#services" data-tab-target="taxi">🚕 Taxi & Cab Booking</a>
     <a href="#hidden-gems">💎 Hidden Gems</a>
     <a href="#location-map">📍 Location Map</a>
   </div>
@@ -566,10 +566,10 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
         <h4>Quick Links</h4>
         <ul style="font-size:0.85rem;color:var(--text-dim);margin-top:8px;display:flex;flex-direction:column;gap:6px;">
           <li><a href="#trip-plans">🗓️ Trip Plans</a></li>
-          <li><a href="#bikes">🏍️ Bikes & Scooters</a></li>
-          <li><a href="#rooms">🏖️ Beach Cottages & Rooms</a></li>
-          <li><a href="#boats">🚤 Boating Rides</a></li>
-          <li><a href="#taxi">🚕 Taxi & Cab Booking</a></li>
+          <li><a href="#services" data-tab-target="bikes">🏍️ Bikes & Scooters</a></li>
+          <li><a href="#services" data-tab-target="rooms">🏖️ Beach Cottages & Rooms</a></li>
+          <li><a href="#services" data-tab-target="boats">🚤 Boating Rides</a></li>
+          <li><a href="#services" data-tab-target="taxi">🚕 Taxi & Cab Booking</a></li>
         </ul>
       </div>
       <div>
@@ -596,11 +596,26 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
   <a href="tel:+918073141678" class="btn btn-coral">📞 Call Now</a>
 </div>
 
-<!-- JAVASCRIPT -->
+<!-- JAVASCRIPT: DYNAMIC TAB SWITCHING ON MENU CLICK -->
 <script>
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
-const menuLinks = document.querySelectorAll('.mobile-menu a');
+const menuLinks = document.querySelectorAll('.mobile-menu a, .nav-links a, footer a[data-tab-target]');
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+function activateTab(tabId) {
+  tabBtns.forEach(b => b.classList.remove('active'));
+  tabPanels.forEach(p => p.classList.remove('active'));
+  
+  const targetBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+  const targetPanel = document.getElementById(tabId);
+  
+  if (targetBtn && targetPanel) {
+    targetBtn.classList.add('active');
+    targetPanel.classList.add('active');
+  }
+}
 
 hamburgerBtn.addEventListener('click', (e) => {
   e.stopPropagation();
@@ -610,24 +625,21 @@ hamburgerBtn.addEventListener('click', (e) => {
 });
 
 menuLinks.forEach(link => {
-  link.addEventListener('click', () => {
+  link.addEventListener('click', (e) => {
+    const tabTarget = link.getAttribute('data-tab-target');
+    if (tabTarget) {
+      activateTab(tabTarget);
+    }
     mobileMenu.classList.remove('open');
     hamburgerBtn.classList.remove('active');
     document.body.style.overflow = '';
   });
 });
 
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabPanels = document.querySelectorAll('.tab-panel');
-
 tabBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    tabBtns.forEach(b => b.classList.remove('active'));
-    tabPanels.forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    const targetId = btn.dataset.tab;
-    const targetPanel = document.getElementById(targetId);
-    if(targetPanel) targetPanel.classList.add('active');
+    const tabId = btn.dataset.tab;
+    activateTab(tabId);
   });
 });
 </script>
