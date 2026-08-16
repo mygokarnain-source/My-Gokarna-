@@ -22,33 +22,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TravelAgency",
-  "name": "My Gokarna",
-  "image": "https://mygokarna.in/og-image.jpg",
-  "telephone": "+918073141678",
-  "url": "https://mygokarna.in",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Near Gokarna Main Bus Stand",
-    "addressLocality": "Gokarna",
-    "addressRegion": "Karnataka",
-    "postalCode": "581326",
-    "addressCountry": "IN"
-  }
-}
-</script>
-
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 :root{
   --deep-navy:#040a14;
   --ocean-navy:#091728;
-  --glass:rgba(15,35,55,0.65);
-  --glass-border:rgba(80,220,205,0.22);
+  --glass:rgba(15,35,55,0.7);
+  --glass-border:rgba(80,220,205,0.25);
   --aqua:#2fd9c8;
   --aqua-bright:#5cf2df;
   --coral:#ff6f4d;
@@ -76,32 +57,27 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.25;}
 
 /* ANIMATIONS */
 @keyframes floatWiggle{
-  0%{transform:translateY(0px) rotate(0deg);}
-  25%{transform:translateY(-6px) rotate(-1deg);}
-  50%{transform:translateY(-10px) rotate(1deg);}
-  75%{transform:translateY(-4px) rotate(0.5deg);}
-  100%{transform:translateY(0px) rotate(0deg);}
+  0%,100%{transform:translateY(0px) rotate(0deg);}
+  50%{transform:translateY(-8px) rotate(1deg);}
 }
 @keyframes pulseAttention{
   0%,100%{transform:scale(1);box-shadow:0 0 14px rgba(37,211,102,0.4);}
-  50%{transform:scale(1.05);box-shadow:0 0 28px rgba(37,211,102,0.85);}
+  50%{transform:scale(1.04);box-shadow:0 0 24px rgba(37,211,102,0.8);}
 }
 @keyframes shakeSoft{
   0%,100%{transform:rotate(0deg);}
-  20%{transform:rotate(-2.5deg);}
-  40%{transform:rotate(2.5deg);}
-  60%{transform:rotate(-1.5deg);}
-  80%{transform:rotate(1.5deg);}
+  25%{transform:rotate(-1.5deg);}
+  75%{transform:rotate(1.5deg);}
 }
 
-.section{position:relative;padding:65px 0;scroll-margin-top:70px;}
-.section-head{text-align:center;max-width:650px;margin:0 auto 36px;}
+.section{position:relative;padding:60px 0;scroll-margin-top:70px;}
+.section-head{text-align:center;max-width:650px;margin:0 auto 32px;}
 .eyebrow{
   display:inline-block;font-size:0.72rem;letter-spacing:2px;
   text-transform:uppercase;color:var(--aqua);background:rgba(47,217,200,0.12);
   border:1px solid rgba(47,217,200,0.35);padding:6px 16px;border-radius:30px;margin-bottom:12px;
 }
-.section-head h2{font-size:clamp(1.7rem,5vw,2.5rem);font-weight:700;margin-bottom:8px;}
+.section-head h2{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;margin-bottom:8px;}
 .section-head p{color:var(--text-dim);font-size:0.95rem;}
 
 .glass-card{
@@ -110,9 +86,9 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.25;}
   transition:all .35s ease;
 }
 .glass-card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-5px);
   border-color:rgba(47,217,200,0.6);
-  box-shadow:0 16px 36px -10px rgba(47,217,200,0.3);
+  box-shadow:0 14px 32px -10px rgba(47,217,200,0.3);
 }
 
 .btn{
@@ -131,9 +107,9 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.25;}
 /* CARDS & IMAGES */
 .card-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;background:#0d263a;}
 .card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
-.glass-card:hover .card-img-wrap img{transform:scale(1.06);}
+.glass-card:hover .card-img-wrap img{transform:scale(1.05);}
 
-/* HEADER & MOBILE MENU */
+/* HEADER & FIXED MOBILE MENU */
 header{position:sticky;top:0;z-index:999;background:rgba(4,10,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08);}
 .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;max-width:1180px;margin:0 auto;}
 .brand{display:flex;align-items:center;gap:10px;}
@@ -146,7 +122,7 @@ header{position:sticky;top:0;z-index:999;background:rgba(4,10,20,0.92);backdrop-
 
 .hamburger{
   width:42px;height:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:5px;background:rgba(255,255,255,0.06);border-radius:10px;border:1px solid rgba(255,255,255,0.15);z-index:1001;
+  gap:5px;background:rgba(255,255,255,0.08);border-radius:10px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;
 }
 .hamburger span{width:22px;height:2px;background:var(--text-main);border-radius:2px;transition:all .3s ease;}
 .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
@@ -154,40 +130,39 @@ header{position:sticky;top:0;z-index:999;background:rgba(4,10,20,0.92);backdrop-
 .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 .mobile-menu{
-  position:fixed;top:66px;left:0;right:0;bottom:0;background:rgba(4,10,20,0.98);
-  backdrop-filter:blur(22px);display:none;flex-direction:column;padding:24px 20px;gap:12px;z-index:1000;overflow-y:auto;
+  position:fixed;top:66px;left:0;right:0;bottom:0;background:rgba(4,10,20,0.96);
+  backdrop-filter:blur(22px);display:none;flex-direction:column;padding:20px;gap:10px;z-index:998;overflow-y:auto;
 }
 .mobile-menu.open{display:flex;}
 .mobile-menu a{
-  font-size:1.05rem;font-weight:600;color:var(--text-main);padding:14px 16px;
-  background:rgba(255,255,255,0.04);border-radius:12px;border:1px solid rgba(255,255,255,0.08);
+  font-size:1rem;font-weight:600;color:var(--text-main);padding:14px 16px;
+  background:rgba(255,255,255,0.05);border-radius:12px;border:1px solid rgba(255,255,255,0.08);display:block;
 }
-.mobile-menu a:hover{background:rgba(47,217,200,0.15);color:var(--aqua-bright);}
+.mobile-menu a:active{background:rgba(47,217,200,0.2);color:var(--aqua-bright);}
 @media(min-width:960px){.nav-links{display:flex;}.hamburger{display:none;}}
 
 /* HERO */
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;padding:70px 0 50px;overflow:hidden;}
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;padding:60px 0 50px;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(4,10,20,0.55) 0%, rgba(4,10,20,0.85) 65%, var(--deep-navy) 100%);}
 .hero-content{position:relative;z-index:2;text-align:center;}
 .hero-photo-wrapper{
-  width:120px;height:120px;margin:0 auto 18px;border-radius:50%;padding:4px;
-  background:linear-gradient(135deg,var(--aqua),var(--coral));animation:floatWiggle 5s infinite ease-in-out;
+  width:120px;height:120px;margin:0 auto 16px;border-radius:50%;padding:4px;
+  background:linear-gradient(135deg,var(--aqua),var(--coral));animation:floatWiggle 4s infinite ease-in-out;
   box-shadow:0 0 25px rgba(47,217,200,0.5);
 }
 .hero-photo-wrapper img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
 .hero h1{font-size:clamp(2rem,7.5vw,3.6rem);font-weight:800;margin-bottom:14px;}
 .hero h1 .glow-text{background:linear-gradient(90deg,var(--aqua-bright),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
-.hero p.sub{color:var(--text-dim);font-size:clamp(0.95rem,2.5vw,1.1rem);max-width:580px;margin:0 auto 28px;}
+.hero p.sub{color:var(--text-dim);font-size:clamp(0.95rem,2.5vw,1.1rem);max-width:580px;margin:0 auto 26px;}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
 
-/* TRIP PLANS */
-.trip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
-.trip-card{display:flex;flex-direction:column;overflow:hidden;}
-.trip-card .body{padding:20px;display:flex;flex-direction:column;gap:12px;flex:1;}
-.trip-highlights{font-size:0.84rem;color:var(--text-dim);line-height:1.5;}
-.trip-card .btn{margin-top:auto;}
+/* TRIP PLANS (NO EXPLANATION, NO BUTTONS) */
+.trip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+.trip-card{overflow:hidden;text-align:center;}
+.trip-card .body{padding:18px;}
+.trip-card h3{font-size:1.25rem;font-weight:700;color:var(--aqua-bright);}
 
 /* SERVICES & TABS */
 .tabs-nav{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:30px;scrollbar-width:none;}
@@ -199,6 +174,7 @@ header{position:sticky;top:0;z-index:999;background:rgba(4,10,20,0.92);backdrop-
 .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
 .product-card{overflow:hidden;display:flex;flex-direction:column;}
 .product-card .body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.product-card .btn{margin-top:auto;}
 
 /* MAP & FOOTER */
 .map-wrap{width:100%;height:280px;border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);margin-top:10px;}
@@ -230,7 +206,7 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
       <a href="#boats">Boating</a>
       <a href="#taxi">Taxis</a>
       <a href="#hidden-gems">Hidden Gems</a>
-      <a href="#contact-map">Bus Stand Location</a>
+      <a href="#location-map">Location</a>
     </nav>
     <div class="header-actions">
       <button class="hamburger" id="hamburgerBtn" aria-label="Open Menu">
@@ -239,15 +215,15 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
     </div>
   </div>
 
-  <!-- MOBILE SLIDE-IN MENU -->
+  <!-- FIXED MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#trip-plans" class="menu-item">🗓️ Gokarna Trip Plans (1, 2, 3 Days)</a>
+    <a href="#trip-plans" class="menu-item">🗓️ Trip Plans</a>
     <a href="#bikes" class="menu-item">🏍️ Bike & Scooter Rental</a>
     <a href="#rooms" class="menu-item">🏖️ Beach Rooms & Stays</a>
     <a href="#boats" class="menu-item">🚤 Boating Experiences</a>
     <a href="#taxi" class="menu-item">🚕 Taxi & Cab Booking</a>
     <a href="#hidden-gems" class="menu-item">💎 Hidden Gems</a>
-    <a href="#contact-map" class="menu-item">📍 Main Bus Stand Location</a>
+    <a href="#location-map" class="menu-item">📍 Location Map</a>
   </div>
 </header>
 
@@ -274,62 +250,38 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
 <section class="section" id="trip-plans">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Custom Itineraries</span>
-      <h2>Gokarna Trip Plans</h2>
-      <p>Handpicked 1, 2, and 3-day travel itineraries designed by local experts.</p>
+      <span class="eyebrow">Itineraries</span>
+      <h2>Trip Plans</h2>
     </div>
 
     <div class="trip-grid">
-      <!-- 1 DAY TRIP PLAN -->
+      <!-- 1 DAY -->
       <div class="glass-card trip-card">
         <div class="card-img-wrap">
-          <img src="trip1.jpg" alt="1 Day Trip Plan Gokarna" onerror="this.parentElement.innerHTML='<div style=\'padding:50px;text-align:center;color:#6f8ba0;\'>trip1.jpg</div>'">
+          <img src="trip1.jpg" alt="1 Day Trip Plan" onerror="this.parentElement.innerHTML='<div style=\'padding:50px;text-align:center;color:#6f8ba0;\'>trip1.jpg</div>'">
         </div>
         <div class="body">
           <h3>1 Day Trip Plan</h3>
-          <div class="spec-list"><span class="tag">Beaches & Temples</span><span class="tag">Sunset Point</span></div>
-          <div class="trip-highlights">
-            • Mahabaleshwar & Ganapati Temple Darshan<br>
-            • Gokarna Main Beach & Kudle Beach stroll<br>
-            • Om Beach Sunset Point & Dolphin View<br>
-            • Bike Rental / Cab assistance included
-          </div>
-          <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%20My%20Gokarna%2C%20I%20want%20details%20for%201%20Day%20Trip%20Plan." target="_blank" rel="noopener">Book 1 Day Plan</a>
         </div>
       </div>
 
-      <!-- 2 DAY TRIP PLAN -->
+      <!-- 2 DAY -->
       <div class="glass-card trip-card">
         <div class="card-img-wrap">
-          <img src="trip2.jpg" alt="2 Day Trip Plan Gokarna" onerror="this.parentElement.innerHTML='<div style=\'padding:50px;text-align:center;color:#6f8ba0;\'>trip2.jpg</div>'">
+          <img src="trip2.jpg" alt="2 Day Trip Plan" onerror="this.parentElement.innerHTML='<div style=\'padding:50px;text-align:center;color:#6f8ba0;\'>trip2.jpg</div>'">
         </div>
         <div class="body">
           <h3>2 Day Trip Plan</h3>
-          <div class="spec-list"><span class="tag">Nature & Waterfalls</span><span class="tag">Beach Stay</span></div>
-          <div class="trip-highlights">
-            • Day 1: Gokarna 5 Beaches Trek & Night Stay<br>
-            • Day 2: Yana Limestone Caves Exploration<br>
-            • Refreshing bath at Vibhooti Waterfalls<br>
-            • Historical Mirjan Fort photography
-          </div>
-          <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%20My%20Gokarna%2C%20I%20want%20details%20for%202%20Day%20Trip%20Plan." target="_blank" rel="noopener">Book 2 Day Plan</a>
         </div>
       </div>
 
-      <!-- 3 DAY TRIP PLAN -->
+      <!-- 3 DAY -->
       <div class="glass-card trip-card">
         <div class="card-img-wrap">
-          <img src="trip3.jpg" alt="3 Day Trip Plan Gokarna" onerror="this.parentElement.innerHTML='<div style=\'padding:50px;text-align:center;color:#6f8ba0;\'>trip3.jpg</div>'">
+          <img src="trip3.jpg" alt="3 Day Trip Plan" onerror="this.parentElement.innerHTML='<div style=\'padding:50px;text-align:center;color:#6f8ba0;\'>trip3.jpg</div>'">
         </div>
         <div class="body">
           <h3>3 Day Trip Plan</h3>
-          <div class="spec-list"><span class="tag">Complete Coastal Tour</span><span class="tag">Boating & Murudeshwar</span></div>
-          <div class="trip-highlights">
-            • Day 1: Gokarna Temples, Beaches & Sunset<br>
-            • Day 2: Yana Caves, Vibhooti Falls & Fort<br>
-            • Day 3: Honnavar Mangrove Boating & Murudeshwar Giant Shiva Temple
-          </div>
-          <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%20My%20Gokarna%2C%20I%20want%20details%20for%203%20Day%20Trip%20Plan." target="_blank" rel="noopener">Book 3 Day Plan</a>
         </div>
       </div>
     </div>
@@ -579,26 +531,26 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
     <div class="card-grid">
       <div class="glass-card product-card">
         <div class="card-img-wrap"><img src="gem1.jpg" alt="Yana Caves" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>gem1.jpg</div>'"></div>
-        <div class="body"><h3>Yana Caves</h3><p style="font-size:0.85rem;color:var(--text-dim);">Ancient limestone monolith rocks inside thick forest.</p></div>
+        <div class="body"><h3>Yana Caves</h3><p style="font-size:0.85rem;color:var(--text-dim);">Limestone rock monoliths</p></div>
       </div>
       <div class="glass-card product-card">
         <div class="card-img-wrap"><img src="gem2.jpg" alt="Murudeshwar Temple" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>gem2.jpg</div>'"></div>
-        <div class="body"><h3>Murudeshwar Temple</h3><p style="font-size:0.85rem;color:var(--text-dim);">World famous giant Shiva statue on the Arabian coast.</p></div>
+        <div class="body"><h3>Murudeshwar Temple</h3><p style="font-size:0.85rem;color:var(--text-dim);">Giant Shiva statue</p></div>
       </div>
       <div class="glass-card product-card">
         <div class="card-img-wrap"><img src="gem3.jpg" alt="Vibhooti Falls" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>gem3.jpg</div>'"></div>
-        <div class="body"><h3>Vibhooti Falls</h3><p style="font-size:0.85rem;color:var(--text-dim);">Refreshing jungle waterfall bath spot near Gokarna.</p></div>
+        <div class="body"><h3>Vibhooti Falls</h3><p style="font-size:0.85rem;color:var(--text-dim);">Jungle waterfall</p></div>
       </div>
       <div class="glass-card product-card">
         <div class="card-img-wrap"><img src="gem4.jpg" alt="Mirjan Fort" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>gem4.jpg</div>'"></div>
-        <div class="body"><h3>Mirjan Fort</h3><p style="font-size:0.85rem;color:var(--text-dim);">Historical green laterite fort with royal architecture.</p></div>
+        <div class="body"><h3>Mirjan Fort</h3><p style="font-size:0.85rem;color:var(--text-dim);">Heritage fort</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER WITH GOKARNA BUS STAND GOOGLE MAP -->
-<footer id="contact-map">
+<!-- FOOTER WITH LOCATION MAP ONLY -->
+<footer id="location-map">
   <div class="container">
     <div class="footer-grid">
       <div>
@@ -607,9 +559,9 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
         <p style="margin-top:10px;font-size:0.85rem;">📞 <a href="tel:+918073141678">+91 80731 41678</a></p>
       </div>
       <div>
-        <h4>Quick Navigation</h4>
+        <h4>Quick Links</h4>
         <ul style="font-size:0.85rem;color:var(--text-dim);margin-top:8px;display:flex;flex-direction:column;gap:6px;">
-          <li><a href="#trip-plans">🗓️ Trip Plans (1, 2, 3 Days)</a></li>
+          <li><a href="#trip-plans">🗓️ Trip Plans</a></li>
           <li><a href="#bikes">🏍️ Bikes & Scooters</a></li>
           <li><a href="#rooms">🏖️ Beach Cottages & Rooms</a></li>
           <li><a href="#boats">🚤 Boating Rides</a></li>
@@ -617,7 +569,7 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
         </ul>
       </div>
       <div>
-        <h4>📍 Gokarna Main Bus Stand Location</h4>
+        <h4>📍 Our Location</h4>
         <div class="map-wrap">
           <iframe 
             src="https://maps.google.com/maps?q=Gokarna+Main+Bus+Stand&t=&z=15&ie=UTF8&iwloc=&output=embed" 
@@ -629,7 +581,7 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; My Gokarna. All rights reserved. | Gokarna, Karnataka 581326
+      &copy; My Gokarna. All rights reserved. | mygokarna.in
     </div>
   </div>
 </footer>
@@ -640,20 +592,17 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
   <a href="tel:+918073141678" class="btn btn-coral">📞 Call Now</a>
 </div>
 
-<!-- JAVASCRIPT FOR PERFECT HAMBURGER & TABS -->
+<!-- JAVASCRIPT -->
 <script>
-// Mobile Menu Toggle & Auto-Close on Click
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
-const menuItems = document.querySelectorAll('.mobile-menu .menu-item');
+const menuItems = document.querySelectorAll('.mobile-menu a');
 
-function toggleMenu() {
+hamburgerBtn.addEventListener('click', () => {
   const isOpen = mobileMenu.classList.toggle('open');
   hamburgerBtn.classList.toggle('active');
   document.body.style.overflow = isOpen ? 'hidden' : '';
-}
-
-hamburgerBtn.addEventListener('click', toggleMenu);
+});
 
 menuItems.forEach(item => {
   item.addEventListener('click', () => {
@@ -663,7 +612,6 @@ menuItems.forEach(item => {
   });
 });
 
-// Category Tab Filtering
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabPanels = document.querySelectorAll('.tab-panel');
 
