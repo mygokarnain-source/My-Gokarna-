@@ -28,7 +28,7 @@ html{scroll-behavior:smooth;}
 :root{
   --deep-navy:#040a14;
   --ocean-navy:#091728;
-  --glass:rgba(15,35,55,0.7);
+  --glass:rgba(15,35,55,0.75);
   --glass-border:rgba(80,220,205,0.25);
   --aqua:#2fd9c8;
   --aqua-bright:#5cf2df;
@@ -70,7 +70,7 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.25;}
   75%{transform:rotate(1.5deg);}
 }
 
-.section{position:relative;padding:60px 0;scroll-margin-top:70px;}
+.section{position:relative;padding:60px 0;scroll-margin-top:70px;z-index:1;}
 .section-head{text-align:center;max-width:650px;margin:0 auto 32px;}
 .eyebrow{
   display:inline-block;font-size:0.72rem;letter-spacing:2px;
@@ -78,7 +78,6 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.25;}
   border:1px solid rgba(47,217,200,0.35);padding:6px 16px;border-radius:30px;margin-bottom:12px;
 }
 .section-head h2{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;margin-bottom:8px;}
-.section-head p{color:var(--text-dim);font-size:0.95rem;}
 
 .glass-card{
   background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
@@ -109,9 +108,9 @@ h1,h2,h3,h4{font-family:var(--font-display);line-height:1.25;}
 .card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
 .glass-card:hover .card-img-wrap img{transform:scale(1.05);}
 
-/* HEADER & FIXED MOBILE MENU */
-header{position:sticky;top:0;z-index:999;background:rgba(4,10,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08);}
-.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;max-width:1180px;margin:0 auto;}
+/* HEADER & FIXED TOP-LAYER MOBILE MENU */
+header{position:sticky;top:0;z-index:99999;background:#040a14;border-bottom:1px solid rgba(255,255,255,0.12);}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;max-width:1180px;margin:0 auto;position:relative;z-index:100000;}
 .brand{display:flex;align-items:center;gap:10px;}
 .brand img{width:42px;height:42px;border-radius:12px;object-fit:cover;}
 .brand-name{font-family:var(--font-display);font-weight:700;font-size:1.05rem;line-height:1.1;}
@@ -121,28 +120,36 @@ header{position:sticky;top:0;z-index:999;background:rgba(4,10,20,0.92);backdrop-
 .nav-links a:hover{color:var(--aqua-bright);}
 
 .hamburger{
-  width:42px;height:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:5px;background:rgba(255,255,255,0.08);border-radius:10px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;
+  width:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;background:rgba(255,255,255,0.08);border-radius:10px;border:1px solid rgba(255,255,255,0.2);cursor:pointer;
 }
-.hamburger span{width:22px;height:2px;background:var(--text-main);border-radius:2px;transition:all .3s ease;}
-.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger span{width:22px;height:2.5px;background:#fff;border-radius:2px;transition:all .3s ease;}
+.hamburger.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
 .hamburger.active span:nth-child(2){opacity:0;}
-.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.hamburger.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
 
+/* FULL SCREEN MOBILE OVERLAY */
 .mobile-menu{
-  position:fixed;top:66px;left:0;right:0;bottom:0;background:rgba(4,10,20,0.96);
-  backdrop-filter:blur(22px);display:none;flex-direction:column;padding:20px;gap:10px;z-index:998;overflow-y:auto;
+  position:fixed;top:68px;left:0;right:0;bottom:0;
+  background:#040a14;
+  z-index:99998;
+  display:none;
+  flex-direction:column;
+  padding:20px;
+  gap:12px;
+  overflow-y:auto;
+  border-top:1px solid rgba(80,220,205,0.2);
 }
 .mobile-menu.open{display:flex;}
 .mobile-menu a{
-  font-size:1rem;font-weight:600;color:var(--text-main);padding:14px 16px;
-  background:rgba(255,255,255,0.05);border-radius:12px;border:1px solid rgba(255,255,255,0.08);display:block;
+  font-size:1.05rem;font-weight:600;color:#fff;padding:16px 18px;
+  background:rgba(20,45,70,0.7);border-radius:14px;border:1px solid rgba(255,255,255,0.1);display:block;
 }
-.mobile-menu a:active{background:rgba(47,217,200,0.2);color:var(--aqua-bright);}
+.mobile-menu a:active{background:rgba(47,217,200,0.3);color:var(--aqua-bright);}
 @media(min-width:960px){.nav-links{display:flex;}.hamburger{display:none;}}
 
 /* HERO */
-.hero{position:relative;min-height:90vh;display:flex;align-items:center;padding:60px 0 50px;overflow:hidden;}
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;padding:60px 0 50px;overflow:hidden;z-index:1;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(4,10,20,0.55) 0%, rgba(4,10,20,0.85) 65%, var(--deep-navy) 100%);}
@@ -158,7 +165,7 @@ header{position:sticky;top:0;z-index:999;background:rgba(4,10,20,0.92);backdrop-
 .hero p.sub{color:var(--text-dim);font-size:clamp(0.95rem,2.5vw,1.1rem);max-width:580px;margin:0 auto 26px;}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
 
-/* TRIP PLANS (NO EXPLANATION, NO BUTTONS) */
+/* TRIP PLANS */
 .trip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
 .trip-card{overflow:hidden;text-align:center;}
 .trip-card .body{padding:18px;}
@@ -179,7 +186,7 @@ header{position:sticky;top:0;z-index:999;background:rgba(4,10,20,0.92);backdrop-
 /* MAP & FOOTER */
 .map-wrap{width:100%;height:280px;border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);margin-top:10px;}
 .map-wrap iframe{width:100%;height:100%;border:0;}
-footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);padding:50px 0 100px;}
+footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);padding:50px 0 100px;position:relative;z-index:1;}
 .footer-grid{display:grid;gap:30px;grid-template-columns:1fr;}
 @media(min-width:850px){.footer-grid{grid-template-columns:1fr 1fr 1.3fr;}}
 .footer-bottom{margin-top:35px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;font-size:0.78rem;color:var(--text-dim);}
@@ -215,15 +222,15 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
     </div>
   </div>
 
-  <!-- FIXED MOBILE MENU -->
+  <!-- FIXED TOP OVERLAY MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#trip-plans" class="menu-item">🗓️ Trip Plans</a>
-    <a href="#bikes" class="menu-item">🏍️ Bike & Scooter Rental</a>
-    <a href="#rooms" class="menu-item">🏖️ Beach Rooms & Stays</a>
-    <a href="#boats" class="menu-item">🚤 Boating Experiences</a>
-    <a href="#taxi" class="menu-item">🚕 Taxi & Cab Booking</a>
-    <a href="#hidden-gems" class="menu-item">💎 Hidden Gems</a>
-    <a href="#location-map" class="menu-item">📍 Location Map</a>
+    <a href="#trip-plans">🗓️ Trip Plans</a>
+    <a href="#bikes">🏍️ Bike & Scooter Rental</a>
+    <a href="#rooms">🏖️ Beach Rooms & Stays</a>
+    <a href="#boats">🚤 Boating Experiences</a>
+    <a href="#taxi">🚕 Taxi & Cab Booking</a>
+    <a href="#hidden-gems">💎 Hidden Gems</a>
+    <a href="#location-map">📍 Location Map</a>
   </div>
 </header>
 
@@ -255,7 +262,6 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
     </div>
 
     <div class="trip-grid">
-      <!-- 1 DAY -->
       <div class="glass-card trip-card">
         <div class="card-img-wrap">
           <img src="trip1.jpg" alt="1 Day Trip Plan" onerror="this.parentElement.innerHTML='<div style=\'padding:50px;text-align:center;color:#6f8ba0;\'>trip1.jpg</div>'">
@@ -265,7 +271,6 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
         </div>
       </div>
 
-      <!-- 2 DAY -->
       <div class="glass-card trip-card">
         <div class="card-img-wrap">
           <img src="trip2.jpg" alt="2 Day Trip Plan" onerror="this.parentElement.innerHTML='<div style=\'padding:50px;text-align:center;color:#6f8ba0;\'>trip2.jpg</div>'">
@@ -275,7 +280,6 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
         </div>
       </div>
 
-      <!-- 3 DAY -->
       <div class="glass-card trip-card">
         <div class="card-img-wrap">
           <img src="trip3.jpg" alt="3 Day Trip Plan" onerror="this.parentElement.innerHTML='<div style=\'padding:50px;text-align:center;color:#6f8ba0;\'>trip3.jpg</div>'">
@@ -596,16 +600,17 @@ footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);
 <script>
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
-const menuItems = document.querySelectorAll('.mobile-menu a');
+const menuLinks = document.querySelectorAll('.mobile-menu a');
 
-hamburgerBtn.addEventListener('click', () => {
+hamburgerBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
   const isOpen = mobileMenu.classList.toggle('open');
   hamburgerBtn.classList.toggle('active');
   document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
-menuItems.forEach(item => {
-  item.addEventListener('click', () => {
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
     mobileMenu.classList.remove('open');
     hamburgerBtn.classList.remove('active');
     document.body.style.overflow = '';
