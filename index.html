@@ -4,138 +4,793 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>My Gokarna | Bike Rental, Beach Rooms, Trip Plans, Boating & Taxi</title>
+<meta name="description" content="My Gokarna – your local partner for 1, 2, and 3 Day Trip Plans, bike rentals, beach rooms, boat rides, and cabs in Gokarna. Instant WhatsApp booking.">
+<meta name="keywords" content="My Gokarna, Gokarna trip plan, 1 day trip plan Gokarna, 2 day trip plan Gokarna, 3 day trip plan Gokarna, Gokarna bike rental, beach rooms, Gokarna boating, Gokarna taxi booking, hidden gems, Om beach, Kudle beach, Yana caves, Murudeshwar">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mygokarna.in/">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="My Gokarna | Trip Plans, Bike Rental, Stays & Boating">
+<meta property="og:description" content="Explore customized Gokarna trip plans, rent bikes, book cottages and cabs instantly on WhatsApp.">
+<meta property="og:image" content="https://mygokarna.in/og-image.jpg">
+<meta property="og:url" content="https://mygokarna.in/">
+<meta property="og:site_name" content="My Gokarna">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 :root{
-  --deep-navy:#040a14;--ocean-navy:#091728;
-  --glass:rgba(15,35,55,0.75);--glass-border:rgba(80,220,205,0.25);
-  --aqua:#2fd9c8;--aqua-bright:#5cf2df;
-  --coral:#ff6f4d;--gold:#ffc266;--whatsapp:#25d366;
-  --text-main:#eef8f8;--text-dim:#a5c0d2;
+  --deep-navy:#040a14;
+  --ocean-navy:#091728;
+  --glass:rgba(15,35,55,0.75);
+  --glass-border:rgba(80,220,205,0.25);
+  --aqua:#2fd9c8;
+  --aqua-bright:#5cf2df;
+  --coral:#ff6f4d;
+  --gold:#ffc266;
+  --whatsapp:#25d366;
+  --text-main:#eef8f8;
+  --text-dim:#a5c0d2;
   --radius:20px;
+  --font-display:'Poppins',sans-serif;
+  --font-body:'Inter',sans-serif;
 }
-body{font-family:'Inter',sans-serif;background:var(--deep-navy);color:var(--text-main);line-height:1.6;}
+body{
+  font-family:var(--font-body);
+  background:var(--deep-navy);
+  color:var(--text-main);
+  overflow-x:hidden;
+  line-height:1.6;
+}
 img{max-width:100%;display:block;}
-h1,h2,h3{font-family:'Poppins',sans-serif;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.25;}
 .container{width:100%;max-width:1180px;margin:0 auto;padding:0 18px;}
-.section{padding:60px 0;scroll-margin-top:70px;}
-.section-head{text-align:center;margin-bottom:32px;}
-.eyebrow{display:inline-block;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--aqua);background:rgba(47,217,200,0.12);padding:6px 16px;border-radius:30px;margin-bottom:12px;}
-.glass-card{background:var(--glass);backdrop-filter:blur(18px);border:1px solid var(--glass-border);border-radius:var(--radius);transition:all .35s ease;}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;}
-.product-card{display:flex;flex-direction:column;overflow:hidden;}
-.card-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;background:#0d263a;display:flex;align-items:center;justify-content:center;}
-.card-img-wrap img{max-width:100%;max-height:100%;object-fit:contain;}
-.body{padding:16px;}
-.btn{display:block;width:100%;text-align:center;padding:12px;border-radius:50px;font-weight:700;margin-top:10px;background:var(--whatsapp);color:#04210f;}
 
-/* NAVIGATION */
+/* ANIMATIONS */
+@keyframes floatWiggle{
+  0%,100%{transform:translateY(0px) rotate(0deg);}
+  50%{transform:translateY(-8px) rotate(1deg);}
+}
+@keyframes pulseAttention{
+  0%,100%{transform:scale(1);box-shadow:0 0 14px rgba(37,211,102,0.4);}
+  50%{transform:scale(1.04);box-shadow:0 0 24px rgba(37,211,102,0.8);}
+}
+@keyframes shakeSoft{
+  0%,100%{transform:rotate(0deg);}
+  25%{transform:rotate(-1.5deg);}
+  75%{transform:rotate(1.5deg);}
+}
+
+.section{position:relative;padding:60px 0;scroll-margin-top:70px;z-index:1;}
+.section-head{text-align:center;max-width:650px;margin:0 auto 32px;}
+.eyebrow{
+  display:inline-block;font-size:0.72rem;letter-spacing:2px;
+  text-transform:uppercase;color:var(--aqua);background:rgba(47,217,200,0.12);
+  border:1px solid rgba(47,217,200,0.35);padding:6px 16px;border-radius:30px;margin-bottom:12px;
+}
+.section-head h2{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;margin-bottom:8px;}
+
+.glass-card{
+  background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--glass-border);border-radius:var(--radius);
+  transition:all .35s ease;
+}
+.glass-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(47,217,200,0.6);
+  box-shadow:0 14px 32px -10px rgba(47,217,200,0.3);
+}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-display);font-weight:700;font-size:0.9rem;padding:13px 22px;border-radius:50px;
+  transition:all .25s ease;white-space:nowrap;
+}
+.btn:active{transform:scale(0.95);}
+.btn-whatsapp{background:linear-gradient(135deg,#2be370,var(--whatsapp));color:#04210f;box-shadow:0 0 16px rgba(37,211,102,0.4);}
+.btn-whatsapp.animate-shake{animation:pulseAttention 3s infinite ease-in-out;}
+.btn-coral{background:linear-gradient(135deg,var(--coral),#e8532f);color:#fff;}
+.btn-coral.animate-shake{animation:shakeSoft 4s infinite ease-in-out;}
+.btn-block{width:100%;}
+.tag{display:inline-block;font-size:0.72rem;padding:5px 12px;border-radius:20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:var(--text-dim);}
+
+/* CARDS & NO-CROP IMAGES */
+.card-img-wrap{
+  width:100%;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  border-radius:var(--radius) var(--radius) 0 0;
+  background:#0d263a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px;
+}
+.card-img-wrap img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain; /* ಫೋಟೋ ಕಟ್ ಆಗದಂತೆ ಪೂರ್ತಿ ತೋರಿಸುತ್ತದೆ */
+  transition:transform .4s ease;
+}
+.glass-card:hover .card-img-wrap img{transform:scale(1.05);}
+
+/* HEADER & FIXED TOP-LAYER MOBILE MENU */
 header{position:sticky;top:0;z-index:99999;background:#040a14;border-bottom:1px solid rgba(255,255,255,0.12);}
-.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;max-width:1180px;margin:0 auto;}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;max-width:1180px;margin:0 auto;position:relative;z-index:100000;}
 .brand{display:flex;align-items:center;gap:10px;}
-.brand img{width:40px;height:40px;border-radius:10px;}
-.hamburger{width:44px;height:44px;background:rgba(255,255,255,0.08);border-radius:10px;border:1px solid rgba(255,255,255,0.2);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;}
-.hamburger span{width:22px;height:2.5px;background:#fff;}
-.mobile-menu{position:fixed;top:66px;left:0;right:0;bottom:0;background:#040a14;display:none;flex-direction:column;padding:20px;gap:12px;z-index:99998;}
+.brand img{width:42px;height:42px;border-radius:12px;object-fit:cover;}
+.brand-name{font-family:var(--font-display);font-weight:700;font-size:1.05rem;line-height:1.1;}
+.brand-name small{display:block;font-family:var(--font-body);font-weight:400;font-size:0.65rem;color:var(--text-dim);}
+.nav-links{display:none;align-items:center;gap:20px;}
+.nav-links a{font-size:0.88rem;font-weight:600;color:var(--text-dim);transition:color .2s;}
+.nav-links a:hover{color:var(--aqua-bright);}
+
+.hamburger{
+  width:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;background:rgba(255,255,255,0.08);border-radius:10px;border:1px solid rgba(255,255,255,0.2);cursor:pointer;
+}
+.hamburger span{width:22px;height:2.5px;background:#fff;border-radius:2px;transition:all .3s ease;}
+.hamburger.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
+
+/* FULL SCREEN MOBILE OVERLAY */
+.mobile-menu{
+  position:fixed;top:68px;left:0;right:0;bottom:0;
+  background:#040a14;
+  z-index:99998;
+  display:none;
+  flex-direction:column;
+  padding:20px;
+  gap:12px;
+  overflow-y:auto;
+  border-top:1px solid rgba(80,220,205,0.2);
+}
 .mobile-menu.open{display:flex;}
-.mobile-menu a{padding:16px;background:rgba(20,45,70,0.7);border-radius:12px;display:block;color:#fff;font-weight:600;}
-@media(min-width:960px){.hamburger{display:none;}.nav-links{display:flex;gap:20px;}}
+.mobile-menu a{
+  font-size:1.05rem;font-weight:600;color:#fff;padding:16px 18px;
+  background:rgba(20,45,70,0.7);border-radius:14px;border:1px solid rgba(255,255,255,0.1);display:block;
+}
+.mobile-menu a:active{background:rgba(47,217,200,0.3);color:var(--aqua-bright);}
+@media(min-width:960px){.nav-links{display:flex;}.hamburger{display:none;}}
+
+/* HERO */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;padding:60px 0 50px;overflow:hidden;z-index:1;}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(4,10,20,0.55) 0%, rgba(4,10,20,0.85) 65%, var(--deep-navy) 100%);}
+.hero-content{position:relative;z-index:2;text-align:center;}
+.hero-photo-wrapper{
+  width:120px;height:120px;margin:0 auto 16px;border-radius:50%;padding:4px;
+  background:linear-gradient(135deg,var(--aqua),var(--coral));animation:floatWiggle 4s infinite ease-in-out;
+  box-shadow:0 0 25px rgba(47,217,200,0.5);
+}
+.hero-photo-wrapper img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
+.hero h1{font-size:clamp(2rem,7.5vw,3.6rem);font-weight:800;margin-bottom:14px;}
+.hero h1 .glow-text{background:linear-gradient(90deg,var(--aqua-bright),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero p.sub{color:var(--text-dim);font-size:clamp(0.95rem,2.5vw,1.1rem);max-width:580px;margin:0 auto 26px;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
+
+/* SERVICES & TABS */
+.tabs-nav{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:30px;scrollbar-width:none;}
+.tabs-nav::-webkit-scrollbar{display:none;}
+.tab-btn{flex:0 0 auto;padding:12px 20px;border-radius:50px;font-weight:600;font-size:0.85rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--text-dim);transition:.25s;}
+.tab-btn.active{background:linear-gradient(135deg,var(--aqua),#1fb3a3);color:#04211d;box-shadow:0 0 16px rgba(47,217,200,0.4);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
+.product-card{overflow:hidden;display:flex;flex-direction:column;}
+.product-card .body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.product-card .btn{margin-top:auto;}
+
+/* TRIP PLANS VIEW */
+#trip-plans-view{
+  display:none;
+  position:fixed;
+  top:68px;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#040a14;
+  z-index:99997;
+  overflow-y:auto;
+  padding:40px 18px 120px;
+}
+#trip-plans-view.active{display:block;}
+.trip-plan-card{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin-bottom:36px;
+}
+.trip-plan-img{
+  width:100%;
+  aspect-ratio:16/9;
+  max-height:340px;
+  background:#0d263a;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px;
+}
+.trip-plan-img img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+.trip-plan-content{padding:24px 20px;}
+.trip-plan-content h3{font-size:1.4rem;color:var(--aqua-bright);margin-bottom:14px;}
+.trip-plan-content p, .trip-plan-content ul{font-size:0.95rem;color:var(--text-main);line-height:1.7;margin-bottom:14px;}
+.trip-plan-content ul{padding-left:20px;list-style:disc;}
+.trip-plan-content strong{color:var(--gold);}
+
+/* MAP & FOOTER */
+.map-wrap{width:100%;height:280px;border-radius:16px;overflow:hidden;border:1px solid var(--glass-border);margin-top:10px;}
+.map-wrap iframe{width:100%;height:100%;border:0;}
+footer{background:var(--ocean-navy);border-top:1px solid rgba(255,255,255,0.08);padding:50px 0 100px;position:relative;z-index:1;}
+.footer-grid{display:grid;gap:30px;grid-template-columns:1fr;}
+@media(min-width:850px){.footer-grid{grid-template-columns:1fr 1fr 1.3fr;}}
+.footer-bottom{margin-top:35px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;font-size:0.78rem;color:var(--text-dim);}
+
+/* STICKY BAR */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(4,10,20,0.95);backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,0.1);}
+.sticky-bar .btn{flex:1;padding:12px;}
+@media(min-width:960px){.sticky-bar{display:none;}}
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="nav-wrap">
-    <a href="#home" class="brand"><img src="logo.png" alt="Logo"> <strong>My Gokarna</strong></a>
+    <a href="#home" class="brand" id="brandLogo">
+      <img src="logo.png" alt="My Gokarna Logo" onerror="this.style.display='none'">
+      <div class="brand-name">My Gokarna<small>Rentals, Stays & Tour Plans</small></div>
+    </a>
     <nav class="nav-links">
-      <a href="javascript:void(0)" id="desktopTripBtn">Trip Plans</a>
-      <a href="#bikes">Bikes</a>
-      <a href="#rooms">Rooms</a>
-      <a href="#boats">Boating</a>
-      <a href="#taxi">Taxis</a>
+      <a href="javascript:void(0)" id="desktopTripBtn">🗓️ Trip Plans</a>
+      <a href="#services" data-tab-target="bikes">Bikes</a>
+      <a href="#services" data-tab-target="rooms">Rooms</a>
+      <a href="#services" data-tab-target="boats">Boating</a>
+      <a href="#services" data-tab-target="taxi">Taxis</a>
+      <a href="#hidden-gems">Hidden Gems</a>
       <a href="#location-map">Location</a>
     </nav>
-    <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+    <div class="header-actions">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
+
+  <!-- FIXED TOP OVERLAY MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="javascript:void(0)" id="mobileTripBtn">🗓️ Trip Plans</a>
-    <a href="#bikes">🏍️ Bike & Scooter Rental</a>
-    <a href="#rooms">🏖️ Beach Rooms & Stays</a>
-    <a href="#boats">🚤 Boating Experiences</a>
-    <a href="#taxi">🚕 Taxi & Cab Booking</a>
+    <a href="#services" data-tab-target="bikes">🏍️ Bike & Scooter Rental</a>
+    <a href="#services" data-tab-target="rooms">🏖️ Beach Rooms & Stays</a>
+    <a href="#services" data-tab-target="boats">🚤 Boating Experiences</a>
+    <a href="#services" data-tab-target="taxi">🚕 Taxi & Cab Booking</a>
+    <a href="#hidden-gems">💎 Hidden Gems</a>
     <a href="#location-map">📍 Location Map</a>
   </div>
 </header>
 
-<section class="hero" id="home" style="padding:100px 0;text-align:center;">
-    <h1>Explore Gokarna Like a <span style="color:var(--aqua)">Local Legend</span></h1>
-</section>
+<!-- MAIN HOMEPAGE CONTENT -->
+<div id="homepage-content">
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="hero-gokarna.jpg" alt="Gokarna Beach Sunset">
+    </div>
+    <div class="container hero-content">
+      <div class="hero-photo-wrapper">
+        <img src="logo.png" alt="My Gokarna Badge" onerror="this.src='hero-gokarna.jpg'">
+      </div>
+      <div class="eyebrow">🌊 #1 Local Gokarna Travel Desk</div>
+      <h1>Explore Gokarna Like a <span class="glow-text">Local Legend</span></h1>
+      <p class="sub">Custom trip plans, verified bikes, sea-view cottages, boating, and cabs at honest rates. Direct WhatsApp booking.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/918073141678?text=Hi%20My%20Gokarna%2C%20I%20want%20to%20plan%20my%20trip!" class="btn btn-whatsapp animate-shake" target="_blank" rel="noopener">📱 Book on WhatsApp</a>
+        <a href="tel:+918073141678" class="btn btn-coral animate-shake">📞 Call +91 80731 41678</a>
+      </div>
+    </div>
+  </section>
 
-<!-- SEPARATE SECTIONS -->
-<section class="section" id="bikes">
+  <!-- SERVICES TABS -->
+  <section class="section" id="services">
     <div class="container">
-        <div class="section-head"><span class="eyebrow">Rental</span><h2>Bikes & Scooters</h2></div>
+      <div class="section-head">
+        <span class="eyebrow">Our Vehicles & Stays</span>
+        <h2>Rentals & Bookings</h2>
+      </div>
+
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="bikes">🏍️ Bikes & Scooters</button>
+        <button class="tab-btn" data-tab="rooms">🏖️ Beach Rooms</button>
+        <button class="tab-btn" data-tab="boats">🚤 Boating</button>
+        <button class="tab-btn" data-tab="taxi">🚕 Taxi Booking</button>
+      </div>
+
+      <!-- BIKES -->
+      <div class="tab-panel active" id="bikes">
         <div class="card-grid">
-            <!-- Add your bike cards here -->
-            <div class="glass-card product-card"><div class="card-img-wrap"><img src="bike1.jpg" alt="Activa"></div><div class="body"><h3>Activa</h3><a href="#" class="btn">Book Now</a></div></div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="bike1.jpg" alt="Activa 6g" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>bike1.jpg</div>'"></div>
+            <div class="body">
+              <h3>Activa 6g</h3>
+              <div class="spec-list"><span class="tag">Automatic</span><span class="tag">Helmet Incl.</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Activa%206g." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="bike2.jpg" alt="Activa 125" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>bike2.jpg</div>'"></div>
+            <div class="body">
+              <h3>Activa 125</h3>
+              <div class="spec-list"><span class="tag">Automatic</span><span class="tag">125cc</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Activa%20125." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="bike3.jpg" alt="Activa 5g" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>bike3.jpg</div>'"></div>
+            <div class="body">
+              <h3>Activa 5g</h3>
+              <div class="spec-list"><span class="tag">Automatic</span><span class="tag">Reliable</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Activa%205g." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="bike4.jpg" alt="Dio 125" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>bike4.jpg</div>'"></div>
+            <div class="body">
+              <h3>Dio 125</h3>
+              <div class="spec-list"><span class="tag">Sporty</span><span class="tag">Automatic</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Dio%20125." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="bike5.jpg" alt="Dio" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>bike5.jpg</div>'"></div>
+            <div class="body">
+              <h3>Dio</h3>
+              <div class="spec-list"><span class="tag">Automatic</span><span class="tag">Lightweight</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Dio." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="bike6.jpg" alt="Activa" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>bike6.jpg</div>'"></div>
+            <div class="body">
+              <h3>Activa</h3>
+              <div class="spec-list"><span class="tag">Automatic</span><span class="tag">Popular</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Activa." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="bike7.jpg" alt="Jupiter" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>bike7.jpg</div>'"></div>
+            <div class="body">
+              <h3>Jupiter</h3>
+              <div class="spec-list"><span class="tag">Automatic</span><span class="tag">Comfort</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Jupiter." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="bike8.jpg" alt="Access 125" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>bike8.jpg</div>'"></div>
+            <div class="body">
+              <h3>Access 125</h3>
+              <div class="spec-list"><span class="tag">125cc</span><span class="tag">Smooth</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Access%20125." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="bike9.jpg" alt="Pleasure scooty" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>bike9.jpg</div>'"></div>
+            <div class="body">
+              <h3>Pleasure scooty</h3>
+              <div class="spec-list"><span class="tag">Easy Ride</span><span class="tag">Light</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Pleasure%20scooty." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="bike10.jpg" alt="Hunter 350" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>bike10.jpg</div>'"></div>
+            <div class="body">
+              <h3>Hunter 350</h3>
+              <div class="spec-list"><span class="tag">Manual</span><span class="tag">Cruiser</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Hunter%20350." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
 
-<section class="section" id="rooms">
-    <div class="container">
-        <div class="section-head"><span class="eyebrow">Stays</span><h2>Beach Rooms</h2></div>
+      <!-- ROOMS -->
+      <div class="tab-panel" id="rooms">
         <div class="card-grid">
-            <!-- Add room cards here -->
-            <div class="glass-card product-card"><div class="card-img-wrap"><img src="room1.jpg" alt="Room"></div><div class="body"><h3>Beach Cottage</h3><a href="#" class="btn">Book Now</a></div></div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="room1.jpg" alt="Deluxe Ac" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>room1.jpg</div>'"></div>
+            <div class="body">
+              <h3>Deluxe Ac</h3>
+              <div class="spec-list"><span class="tag">AC</span><span class="tag">Attached Bath</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Deluxe%20Ac%20room." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="room2.jpg" alt="Deluxe Cottage" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>room2.jpg</div>'"></div>
+            <div class="body">
+              <h3>Deluxe Cottage</h3>
+              <div class="spec-list"><span class="tag">Private</span><span class="tag">Garden</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Deluxe%20Cottage." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="room3.jpg" alt="Deluxe Pool Access Room" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>room3.jpg</div>'"></div>
+            <div class="body">
+              <h3>Deluxe Pool Access Room</h3>
+              <div class="spec-list"><span class="tag">Pool View</span><span class="tag">AC</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Pool%20View%20Room." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="room4.jpg" alt="Deluxe Sea View Room" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>room4.jpg</div>'"></div>
+            <div class="body">
+              <h3>Deluxe Sea View Room</h3>
+              <div class="spec-list"><span class="tag">Sea View</span><span class="tag">Balcony</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Sea%20View%20Room." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="room5.jpg" alt="Budget Friendly rooms" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>room5.jpg</div>'"></div>
+            <div class="body">
+              <h3>Budget Friendly rooms</h3>
+              <div class="spec-list"><span class="tag">Clean</span><span class="tag">Affordable</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Budget%20Friendly%20rooms." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="room6.jpg" alt="Under 1000 Rooms" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>room6.jpg</div>'"></div>
+            <div class="body">
+              <h3>Under 1000 Rooms</h3>
+              <div class="spec-list"><span class="tag">Economy</span><span class="tag">Near Beach</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Under%201000%20Rooms." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
 
-<section class="section" id="boats">
-    <div class="container">
-        <div class="section-head"><span class="eyebrow">Experience</span><h2>Boating</h2></div>
+      <!-- BOATS -->
+      <div class="tab-panel" id="boats">
         <div class="card-grid">
-            <div class="glass-card product-card"><div class="card-img-wrap"><img src="boat1.jpg" alt="Boat"></div><div class="body"><h3>Backwater Boating</h3><a href="#" class="btn">Book Now</a></div></div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="boat1.jpg" alt="Honnavara boating" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>boat1.jpg</div>'"></div>
+            <div class="body">
+              <h3>Honnavara boating</h3>
+              <div class="spec-list"><span class="tag">Backwaters</span><span class="tag">Scenic</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Honnavara%20boating." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="boat2.jpg" alt="Murudeshwar boating" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>boat2.jpg</div>'"></div>
+            <div class="body">
+              <h3>Murudeshwar boating</h3>
+              <div class="spec-list"><span class="tag">Temple View</span><span class="tag">Sea Ride</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Murudeshwar%20boating." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="boat3.jpg" alt="Gokarna Boating" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>boat3.jpg</div>'"></div>
+            <div class="body">
+              <h3>Gokarna Boating</h3>
+              <div class="spec-list"><span class="tag">Om Beach</span><span class="tag">Dolphins</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Gokarna%20Boating." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="boat4.jpg" alt="Belekan beach Boating" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>boat4.jpg</div>'"></div>
+            <div class="body">
+              <h3>Belekan beach Boating</h3>
+              <div class="spec-list"><span class="tag">Peaceful</span><span class="tag">Cliff View</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Belekan%20beach%20Boating." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
 
-<section class="section" id="taxi">
-    <div class="container">
-        <div class="section-head"><span class="eyebrow">Transport</span><h2>Taxi Booking</h2></div>
+      <!-- TAXI -->
+      <div class="tab-panel" id="taxi">
         <div class="card-grid">
-            <div class="glass-card product-card"><div class="card-img-wrap"><img src="taxi1.jpg" alt="Taxi"></div><div class="body"><h3>Swift Dzire</h3><a href="#" class="btn">Book Now</a></div></div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="taxi1.jpg" alt="Swift Dzire" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>taxi1.jpg</div>'"></div>
+            <div class="body">
+              <h3>Swift Dzire</h3>
+              <div class="spec-list"><span class="tag">Sedan</span><span class="tag">AC</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Swift%20Dzire%20taxi." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="taxi2.jpg" alt="Ertiga" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>taxi2.jpg</div>'"></div>
+            <div class="body">
+              <h3>Ertiga</h3>
+              <div class="spec-list"><span class="tag">SUV</span><span class="tag">7 Seater</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Ertiga%20taxi." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="taxi3.jpg" alt="Traveller" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>taxi3.jpg</div>'"></div>
+            <div class="body">
+              <h3>Traveller</h3>
+              <div class="spec-list"><span class="tag">Group Tour</span><span class="tag">AC</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Traveller%20taxi." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+          <div class="glass-card product-card">
+            <div class="card-img-wrap"><img src="taxi4.jpg" alt="Eeco" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>taxi4.jpg</div>'"></div>
+            <div class="body">
+              <h3>Eeco</h3>
+              <div class="spec-list"><span class="tag">Budget</span><span class="tag">Family</span></div>
+              <a class="btn btn-whatsapp btn-block" href="https://wa.me/918073141678?text=Hi%2C%20I%20want%20to%20book%20Eeco%20taxi." target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<footer id="location-map">
+  <!-- HIDDEN GEMS -->
+  <section class="section" id="hidden-gems">
     <div class="container">
-        <h3>📍 Our Location</h3>
-        <iframe src="https://maps.google.com/maps?q=Gokarna+Main+Bus+Stand&output=embed" width="100%" height="250" style="border:0;margin-top:15px;border-radius:15px;" allowfullscreen></iframe>
+      <div class="section-head">
+        <span class="eyebrow">Explore Nature</span>
+        <h2>Hidden Gems & Attractions</h2>
+      </div>
+      <div class="card-grid">
+        <div class="glass-card product-card">
+          <div class="card-img-wrap"><img src="gem1.jpg" alt="Yana Caves" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>gem1.jpg</div>'"></div>
+          <div class="body"><h3>Yana Caves</h3><p style="font-size:0.85rem;color:var(--text-dim);">Limestone rock monoliths</p></div>
+        </div>
+        <div class="glass-card product-card">
+          <div class="card-img-wrap"><img src="gem2.jpg" alt="Murudeshwar Temple" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>gem2.jpg</div>'"></div>
+          <div class="body"><h3>Murudeshwar Temple</h3><p style="font-size:0.85rem;color:var(--text-dim);">Giant Shiva statue</p></div>
+        </div>
+        <div class="glass-card product-card">
+          <div class="card-img-wrap"><img src="gem3.jpg" alt="Vibhooti Falls" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>gem3.jpg</div>'"></div>
+          <div class="body"><h3>Vibhooti Falls</h3><p style="font-size:0.85rem;color:var(--text-dim);">Jungle waterfall</p></div>
+        </div>
+        <div class="glass-card product-card">
+          <div class="card-img-wrap"><img src="gem4.jpg" alt="Mirjan Fort" onerror="this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;color:#6f8ba0;\'>gem4.jpg</div>'"></div>
+          <div class="body"><h3>Mirjan Fort</h3><p style="font-size:0.85rem;color:var(--text-dim);">Heritage fort</p></div>
+        </div>
+      </div>
     </div>
-</footer>
+  </section>
 
-<!-- TRIP PLANS MODAL -->
-<div id="trip-plans-view" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#040a14;z-index:99999;padding:40px;overflow-y:auto;">
-    <button id="closeTripView" style="padding:10px 20px;">Close</button>
-    <h1>Trip Plans</h1>
-    <!-- Add your Day 1, 2, 3 details here -->
+  <!-- FOOTER WITH LOCATION MAP ONLY -->
+  <footer id="location-map">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>My Gokarna</h3>
+          <p style="color:var(--text-dim);font-size:0.85rem;margin-top:8px;">Your reliable local travel partner for custom itineraries, rentals, boating, and cabs in Gokarna.</p>
+          <p style="margin-top:10px;font-size:0.85rem;">📞 <a href="tel:+918073141678">+91 80731 41678</a></p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul style="font-size:0.85rem;color:var(--text-dim);margin-top:8px;display:flex;flex-direction:column;gap:6px;">
+            <li><a href="javascript:void(0)" class="footerTripBtn">🗓️ Trip Plans</a></li>
+            <li><a href="#services" data-tab-target="bikes">🏍️ Bikes & Scooters</a></li>
+            <li><a href="#services" data-tab-target="rooms">🏖️ Beach Cottages & Rooms</a></li>
+            <li><a href="#services" data-tab-target="boats">🚤 Boating Rides</a></li>
+            <li><a href="#services" data-tab-target="taxi">🚕 Taxi & Cab Booking</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>📍 Our Location</h4>
+          <div class="map-wrap">
+            <iframe 
+              src="https://maps.google.com/maps?q=Gokarna+Main+Bus+Stand&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; My Gokarna. All rights reserved. | mygokarna.in
+      </div>
+    </div>
+  </footer>
 </div>
 
-<script>
-const menu = document.getElementById('mobileMenu');
-const btn = document.getElementById('hamburgerBtn');
-btn.addEventListener('click', () => menu.classList.toggle('open'));
-document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+<!-- TRIP PLANS DEDICATED FULL VIEW (OPENS ONLY FROM MENU) -->
+<div id="trip-plans-view">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;">
+      <h2 style="font-size:1.8rem;color:var(--aqua-bright);">🗓️ Gokarna Trip Plans</h2>
+      <button id="closeTripView" style="padding:8px 18px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:30px;font-weight:600;">✕ Close</button>
+    </div>
 
-document.getElementById('desktopTripBtn').onclick = () => document.getElementById('trip-plans-view').style.display = 'block';
-document.getElementById('mobileTripBtn').onclick = () => document.getElementById('trip-plans-view').style.display = 'block';
-document.getElementById('closeTripView').onclick = () => document.getElementById('trip-plans-view').style.display = 'none';
+    <!-- 1-DAY TRIP PLAN -->
+    <div class="trip-plan-card">
+      <div class="trip-plan-img">
+        <img src="trip1.jpg" alt="1 Day Gokarna Trip Plan" onerror="this.parentElement.innerHTML='<div style=\'padding:60px;text-align:center;color:#6f8ba0;\'>trip1.jpg</div>'">
+      </div>
+      <div class="trip-plan-content">
+        <h3>1-Day Gokarna Trip Plan</h3>
+        <p>If you reach Gokarna early in the morning, first visit the Mahabaleshwar Temple and Maha Ganapati Temple. Then rent a bike and explore some of Gokarna’s hidden places, such as Shiva Cave, Jatayu Teertha, Ram Teertha, and Koti Teertha.</p>
+        <p>In the evening, you can explore the beautiful beaches—Om Beach, Kudle Beach, Paradise Beach, and Half Moon Beach—and complete your 1-day trip.</p>
+        <p style="color:var(--gold);"><em>Note: But according to me, it’s better to plan a 2-day or 3-day trip to Gokarna so you can explore the places properly and enjoy the trip without rushing.</em></p>
+      </div>
+    </div>
+
+    <!-- 2-DAY TRIP PLAN -->
+    <div class="trip-plan-card">
+      <div class="trip-plan-img">
+        <img src="trip2.jpg" alt="2 Day Gokarna Trip Plan" onerror="this.parentElement.innerHTML='<div style=\'padding:60px;text-align:center;color:#6f8ba0;\'>trip2.jpg</div>'">
+      </div>
+      <div class="trip-plan-content">
+        <h3>2-Day Gokarna Trip Plan</h3>
+        <p>If you’re planning a trip to Gokarna on Saturday and Sunday, here’s a plan you can follow:</p>
+        
+        <h4 style="color:var(--gold);margin-top:14px;margin-bottom:6px;">Day 1 – Saturday</h4>
+        <p>If you reach Gokarna around 7:00 AM, check in to your stay, freshen up, and first visit the Gokarna temples for darshan.</p>
+        <p>After that, rent a bike and head straight to Mirjan Fort. By the time you finish exploring, it will be around lunchtime, so have lunch there.</p>
+        <p>Then, travel to Honnavar and spend around 2 hours exploring places like Manki Beach, Eco Beach, and other nearby attractions.</p>
+        <p>Around 5:00 PM, leave for Murudeshwar. Visit the temple, have darshan, and enjoy the beach experience.</p>
+        <p>Later at night, return to Gokarna, enjoy the nightlife and party, and complete Day 1.</p>
+
+        <h4 style="color:var(--gold);margin-top:14px;margin-bottom:6px;">Day 2 – Sunday</h4>
+        <p>Start around 7:00 AM and head straight to Yana Caves. On the way back, you can also visit Vibhuti Falls.</p>
+        <p>By the time you return, it will be around lunchtime. After lunch, spend the evening exploring the beautiful places and beaches around Gokarna, such as:</p>
+        <ul>
+          <li>Shiva Cave</li>
+          <li>Om Beach</li>
+          <li>Kudle Beach</li>
+          <li>Patanga Beach</li>
+          <li>Paradise Beach</li>
+          <li>Half Moon Beach</li>
+          <li>Belekan Beach</li>
+          <li>Sunset Point</li>
+        </ul>
+        <p>Cover as many places as possible depending on your time and energy.</p>
+        <p>Finally, return to Gokarna at night and head back to your hometown, completing your 2-day Gokarna trip.</p>
+      </div>
+    </div>
+
+    <!-- 3-DAY TRIP PLAN -->
+    <div class="trip-plan-card">
+      <div class="trip-plan-img">
+        <img src="trip3.jpg" alt="3 Day Gokarna Trip Plan" onerror="this.parentElement.innerHTML='<div style=\'padding:60px;text-align:center;color:#6f8ba0;\'>trip3.jpg</div>'">
+      </div>
+      <div class="trip-plan-content">
+        <h3>3-Day Gokarna Trip Plan</h3>
+        
+        <h4 style="color:var(--gold);margin-top:14px;margin-bottom:6px;">Day 1 – Gokarna, Mirjan, Honnavar & Murudeshwar</h4>
+        <p>On the first day, start by visiting the Mahabaleshwar Temple in Gokarna and complete your darshan.</p>
+        <p>After that, rent a bike and head straight to Mirjan Fort. From there, travel to Honnavar and then continue to Murudeshwar.</p>
+        <p>On the way, you can also visit Apsarakonda Falls and enjoy the beach.</p>
+        <p>If you’re visiting during the summer season, you can make the trip even more exciting by trying scuba diving at Netrani Island near Murudeshwar.</p>
+        <p>In Honnavar, you can also enjoy backwater boating through the mangroves, which gives you a Kerala-style boating experience.</p>
+
+        <h4 style="color:var(--gold);margin-top:14px;margin-bottom:6px;">Day 2 – Yana & Waterfalls</h4>
+        <p>On the second day, head to Yana Caves.</p>
+        <p>While returning from Yana, you can explore several beautiful waterfalls, including:</p>
+        <ul>
+          <li>Vibhuti Falls</li>
+          <li>Donne Falls</li>
+          <li>Hosadevata Falls</li>
+        </ul>
+        <p>If you’re willing to travel a little farther, you can also visit:</p>
+        <ul>
+          <li>Vibhuti Falls</li>
+          <li>Kandagara Falls</li>
+        </ul>
+        <p>You can cover as many waterfalls as possible depending on the time available.</p>
+
+        <h4 style="color:var(--gold);margin-top:14px;margin-bottom:6px;">Day 3 – Gokarna Temples, Hidden Gems & Beaches</h4>
+        <p>On the last day, explore the temples around Gokarna and then spend the rest of the day discovering the hidden gems and beautiful beaches around Gokarna.</p>
+        <p>Places you can cover include:</p>
+        <ul>
+          <li>Half Moon Beach</li>
+          <li>Om Beach</li>
+          <li>Kudle Beach</li>
+          <li>Paradise Beach</li>
+          <li>Shiva Cave</li>
+          <li>Belekan Beach</li>
+          <li>Lighthouse</li>
+          <li>Rama Teertha</li>
+          <li>Main Beach</li>
+        </ul>
+        <p>If you have enough time, you can also add some of these places to Day 2.</p>
+        <p>After completing your trip, return to Gokarna and head back to your hometown at night, completing your 3-day Gokarna trip.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM STICKY BAR -->
+<div class="sticky-bar">
+  <a href="https://wa.me/918073141678?text=Hi%20My%20Gokarna%2C%20I%20want%20to%20book%20a%20service." class="btn btn-whatsapp" target="_blank" rel="noopener">📱 WhatsApp</a>
+  <a href="tel:+918073141678" class="btn btn-coral">📞 Call Now</a>
+</div>
+
+<!-- JAVASCRIPT LOGIC -->
+<script>
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuLinks = document.querySelectorAll('.mobile-menu a, .nav-links a, footer a[data-tab-target]');
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+const tripPlansView = document.getElementById('trip-plans-view');
+const desktopTripBtn = document.getElementById('desktopTripBtn');
+const mobileTripBtn = document.getElementById('mobileTripBtn');
+const closeTripView = document.getElementById('closeTripView');
+const brandLogo = document.getElementById('brandLogo');
+const footerTripBtns = document.querySelectorAll('.footerTripBtn');
+
+function openTripPlans() {
+  tripPlansView.classList.add('active');
+  window.scrollTo(0,0);
+  mobileMenu.classList.remove('open');
+  hamburgerBtn.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeTripPlans() {
+  tripPlansView.classList.remove('active');
+}
+
+desktopTripBtn.addEventListener('click', openTripPlans);
+mobileTripBtn.addEventListener('click', openTripPlans);
+closeTripView.addEventListener('click', closeTripPlans);
+brandLogo.addEventListener('click', closeTripPlans);
+footerTripBtns.forEach(btn => btn.addEventListener('click', openTripPlans));
+
+function activateTab(tabId) {
+  closeTripPlans();
+  tabBtns.forEach(b => b.classList.remove('active'));
+  tabPanels.forEach(p => p.classList.remove('active'));
+  
+  const targetBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+  const targetPanel = document.getElementById(tabId);
+  
+  if (targetBtn && targetPanel) {
+    targetBtn.classList.add('active');
+    targetPanel.classList.add('active');
+  }
+}
+
+hamburgerBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburgerBtn.classList.toggle('active');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const tabTarget = link.getAttribute('data-tab-target');
+    if (tabTarget) {
+      activateTab(tabTarget);
+    }
+    mobileMenu.classList.remove('open');
+    hamburgerBtn.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tabId = btn.dataset.tab;
+    activateTab(tabId);
+  });
+});
 </script>
+
 </body>
 </html>
